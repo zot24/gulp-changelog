@@ -4,6 +4,12 @@
 
 ## Unreleased version
 
+## v1.0.1 (2014-10-15)
+
+### New
+
+* Add proper readme info.
+
 ## v1.0.0 (2014-10-07)
 
 ### New
