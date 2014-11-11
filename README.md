@@ -35,9 +35,9 @@ This should be how people to add new features to a project, using this `gulp tas
 5. Create new Pull Request
 6. Onces you and your team are ready to merge it:
     1. Make sure you have pulled tags down (`git fetch origin --tags`)
-	2. Mark the change ([`gulp [patch|minor|major]`)
+    2. Mark the change ([`gulp [patch|minor|major]`)
     3. Push new tag (`git push origin --tags`)
-	4. Push to the branch (`git push origin new/my-new-feature`)
+    4. Push to the branch (`git push origin new/my-new-feature`)
 7. Merge into the master branch
 
 ### This is how you write your commit message:
@@ -178,6 +178,11 @@ gulp.task "patch", ["tagPatch", "changelog"]
 gulp.task "minor", ["minorPatch", "changelog"]
 gulp.task "major", ["majorPatch", "changelog"]
 ```
+
+Contributing
+------------
+
+To know how to contribute `properly` have a look to our [Contribute Guidelines](https://github.com/CloudManaged/gulp-changelog/blob/master/CONTRIBUTE.md) file!
 
 Dependencies
 ------------
