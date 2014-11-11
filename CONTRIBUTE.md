@@ -24,7 +24,7 @@ Same way we use this project you will find more details on this section of the [
 
 ### This is how you write your commit message:
 
-Same way we use this project you will find more details on this section of the [README FILE](https://github.com/CloudManaged/gulp-changelog/blob/master/README.md##this-is-how-you-write-your-commit-message)
+Same way we use this project you will find more details on this section of the [README FILE](https://github.com/CloudManaged/gulp-changelog/blob/master/README.md#this-is-how-you-write-your-commit-message)
 
 #### References
 
