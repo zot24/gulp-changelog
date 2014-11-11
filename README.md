@@ -131,6 +131,8 @@ Dependencies
 References
 ----------
 
+* [Gulp structure inspiration](https://github.com/uniHackge/unihack.ge)
+
 * [How to contributing to a Project](http://git-scm.com/book/ch5-2.html)
 
 * [How to writing good commit messages](https://github.com/erlang/otp/wiki/Writing-good-commit-messages)
@@ -145,3 +147,4 @@ Automate some of the task, like:
 * Make sure you have pulled tags down (`git fetch origin --tags`)
 * Push new tag (`git push origin --tags`)
 * Push to the branch (`git push origin my-new-feature`)
+* Comunicate with Github API and create/fullfill the release
