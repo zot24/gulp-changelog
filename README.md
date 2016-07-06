@@ -35,9 +35,9 @@ This should be how people to add new features to a project, using this `gulp tas
 5. Create new Pull Request
 6. Onces you and your team are ready to merge it:
     1. Make sure you have pulled tags down (`git fetch origin --tags`)
-	2. Mark the change ([`gulp [patch|minor|major]`)
+    2. Mark the change ([`gulp [patch|minor|major]`)
     3. Push new tag (`git push origin --tags`)
-	4. Push to the branch (`git push origin new/my-new-feature`)
+    4. Push to the branch (`git push origin new/my-new-feature`)
 7. Merge into the master branch
 
 ### This is how you write your commit message:
@@ -92,6 +92,7 @@ This change become important because shanty is a old, deprecated and unmaintaine
 * minor
 * cosmetic
 * wip
+* ipv
 
 ### This is how you run the tasks:
 
@@ -119,17 +120,82 @@ This `gulp` commands will add a tag with the specific version according with the
 
 We are following the conventions used on [Semantic Versioning 2.0.0](http://semver.org/)
 
+Integration
+------------
+
+This is the main structure of the project
+
+gulpfile.js
+	gulp
+		tasks
+			changelog.coffee
+			tag.coffee
+		util
+		index.coffee
+
+If you need to add a new task to just add a new file into a `tasks` folder wrap the task between the `module.export`, as so:
+
+```
+module.exports = (g, p, c)->
+...
+```
+
+And access all you plugins and config settings, paths usign the variables sended to the task, as so:
+
+```
+module.exports = (g, p, c)->
+  g.task "changelog", ->
+    file = c.changelog.file
+...
+```
+
+* g => gulp
+* p => plugins
+* c => config
+
+The configuration settings are initialized in the `index.coffee` file, like:
+
+```
+config = {
+  pkg:
+    folder: './'
+    file: 'package.json'
+  changelog:
+    folder: './'
+    file: 'CHANGELOG.md'
+}
+```
+Then we can access to the as explainded before:
+
+```
+c.pkg.file => 'package.json'
+```
+
+And the last think to do is add the name of our task at the bottom of our file `index.coffee`
+
+```
+gulp.task "patch", ["tagPatch", "changelog"]
+gulp.task "minor", ["minorPatch", "changelog"]
+gulp.task "major", ["majorPatch", "changelog"]
+```
+
+Contributing
+------------
+
+To know how to contribute `properly` have a look to our [Contribute Guidelines](https://github.com/CloudManaged/gulp-changelog/blob/master/CONTRIBUTE.md) file!
+
 Dependencies
 ------------
 
 * [Gulp Git](https://github.com/stevelacy/gulp-git)
 * [Gulp Dump](https://github.com/stevelacy/gulp-bump)
 * [Gulp Tag Version](https://github.com/ikari-pl/gulp-tag-version)
-
 * [Python package gitchangelog](https://github.com/securactive/gitchangelog)
 
 References
 ----------
+
+* [Gulp structure inspiration](https://github.com/uniHackge/unihack.ge)
 
 * [How to contributing to a Project](http://git-scm.com/book/ch5-2.html)
 
@@ -145,3 +211,4 @@ Automate some of the task, like:
 * Make sure you have pulled tags down (`git fetch origin --tags`)
 * Push new tag (`git push origin --tags`)
 * Push to the branch (`git push origin my-new-feature`)
+* Comunicate with Github API and create/fullfill the release
